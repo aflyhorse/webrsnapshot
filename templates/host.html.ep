@@ -36,7 +36,7 @@
   <div id="content">
     <div id="tabs">
       <ul>
-        <li><a>Host <%= $host %> summary</a></li>
+        <li><a>主机 <%= $host %> 概况</a></li>
       </ul>
       
       <table id="hostsummary" border cellpadding="3" cellspacing="1">
