@@ -37,15 +37,15 @@
   <div id="content">
     <div id="tabs">
       <ul>
-        <li><a href="#tabs-1">Root</a></li>
-        <li><a href="#tabs-2">Commands</a></li>
-        <li><a href="#tabs-3">Global Config</a></li>
-        <li><a href="#tabs-4">Backup Interval</a></li>
-        <li><a href="#tabs-5">Include/Exclude</a></li>
-        <li><a href="#tabs-6">Hosts</a></li>
-        <li><a href="#tabs-7">Scripts</a></li>
+        <li><a href="#tabs-1">核心</a></li>
+        <li><a href="#tabs-2">命令</a></li>
+        <li><a href="#tabs-3">全局设置</a></li>
+        <li><a href="#tabs-4">备份间隔计划</a></li>
+        <li><a href="#tabs-5">白/黑名单</a></li>
+        <li><a href="#tabs-6">主机</a></li>
+        <li><a href="#tabs-7">脚本</a></li>
       </ul>
-      <INPUT type="submit" class="submit_btn" value="Save">
+      <INPUT type="submit" class="submit_btn" value="保存">
 <!-- 
       ##########################################################
       ##########################################################
@@ -56,20 +56,20 @@
       <div id="tabs-1">
         <div class="infoicon">
           <img src="default/img/info.png" 
-            title="<b>Default: 1.2</b> (required)<br/> 
-            Config file version<br/>You should not change this!!!" />
+            title="<b>默认: 1.2</b> (必填)<br/> 
+            设置文件版本号<br/>你不应该修改这项!!!" />
         </div>
-        <div class="configlabel"><LABEL>config_version</LABEL></div>
+        <div class="configlabel"><LABEL>设置版本号</LABEL></div>
         <div>
           <INPUT type="text" name="config_version" class="configfield" value="<%= $config_version %>" />
         </div>
         <br/>
 
         <div class="infoicon">
-          <img src="default/img/info.png" title="Local filesystem path to save all snapshots.<br>
-          <b>Don't forget the trailing slash!!!</b>" />
+          <img src="default/img/info.png" title="存储备份的本地路径<br>
+          <b>不要忘记结尾的斜线!!!</b>" />
         </div>
-        <div class="configlabel"><LABEL>snapshot_root</LABEL></div>
+        <div class="configlabel"><LABEL>备份目录</LABEL></div>
         <div>
           <INPUT type="text" name="snapshot_root" class="configfield" value="<%= $snapshot_root %>" />
         </div>
