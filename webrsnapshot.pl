@@ -78,6 +78,8 @@ sub mainMenu
   $menuLinks[3][1] = "/log";
   $menuLinks[4][0] = "Cronjobs";
   $menuLinks[4][1] = "/cron";
+  $menuLinks[5][0] = "Shutdown Server";
+  $menuLinks[5][1] = "/shutdown";
   return @menuLinks;
 };
 
@@ -586,6 +588,23 @@ get '/config' => sub {
   else
   {
     $self->render('login');
+  }
+};
+
+# Shutdown server
+get '/shutdown' => sub
+{
+  my $self = shift;
+  my $username = $self->session('username')?$self->session('username'):"";
+  my $password = $self->session('password')?$self->session('password'):"";
+  if ( $self->authenticate( $username, $password ) )
+  {
+      $self->render(text => "System Shutting Down. Farewell.");
+      system("touch /opt/webrsnapshot/shutdown");
+  }
+  else
+  {
+    $self->redirect_to('/login');
   }
 };
 
