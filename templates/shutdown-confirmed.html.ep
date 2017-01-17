@@ -1,0 +1,29 @@
+% layout $custom_template;
+% title 'Webrsnapshot';
+
+<div id="bodycontainer">
+  <form method="post" action="/shutdown-confirmed" name="shutdownconfirmedform">
+  <div id="menucontainer">
+    <ul id="menu">
+      <% my $menu_prt = 0; %>
+      <% while ( @$mainmenu > $menu_prt) { %>
+        <% my @menuitem = @$mainmenu[$menu_prt++]; %>
+        <li>
+          <a href=<%= $menuitem[0][1] %>
+            <% if ($menuitem[0][0] eq "Shutdown Server" ) { %> class="active"<% } %> >
+            <%= $menuitem[0][0] %>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+  <div id="content">
+    <div id="tabs">
+      <ul>
+        <li><a>Shutdown Server</a></li>
+      </ul>
+  <LABEL>System is Shutting down. Farewell.</LABEL><br/>
+
+  </div> <!-- End of Content -->
+  </form>
+</div> <!-- End of "bodycontainer" -->
