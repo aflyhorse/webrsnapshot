@@ -27,7 +27,7 @@
       <% while ( @$mainmenu > $menu_prt) { %>
         <% my @menuitem = @$mainmenu[$menu_prt++]; %>
         <li>
-          <a href=<%= $menuitem[0][1] %> <% if ($menuitem[0][0] eq "Home" ) { %> class="active"<% } %> >
+          <a href=<%= $menuitem[0][1] %> <% if ($menuitem[0][0] eq "首页" ) { %> class="active"<% } %> >
           <%= $menuitem[0][0] %></a>
         </li>
       <% } %>

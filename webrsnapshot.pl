@@ -78,7 +78,7 @@ sub mainMenu
   $menuLinks[3][1] = "/log";
   $menuLinks[4][0] = "计划任务";
   $menuLinks[4][1] = "/cron";
-  $menuLinks[5][0] = "Shutdown Server";
+  $menuLinks[5][0] = "关闭服务器";
   $menuLinks[5][1] = "/shutdown";
   return @menuLinks;
 };

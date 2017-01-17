@@ -10,7 +10,7 @@
         <% my @menuitem = @$mainmenu[$menu_prt++]; %>
         <li>
           <a href=<%= $menuitem[0][1] %>
-            <% if ($menuitem[0][0] eq "Shutdown Server" ) { %> class="active"<% } %> >
+            <% if ($menuitem[0][0] eq "关闭服务器" ) { %> class="active"<% } %> >
             <%= $menuitem[0][0] %>
           </a>
         </li>
@@ -20,9 +20,9 @@
   <div id="content">
     <div id="tabs">
       <ul>
-        <li><a>Shutdown Server</a></li>
+        <li><a>关闭服务器</a></li>
       </ul>
-  <LABEL>System is Shutting down. Farewell.</LABEL><br/>
+  <LABEL>系统正在关闭中。感谢您的使用，再见。</LABEL><br/>
 
   </div> <!-- End of Content -->
   </form>

@@ -27,7 +27,7 @@
       <% while ( @$mainmenu > $menu_prt) { %>
         <% my @menuitem = @$mainmenu[$menu_prt++]; %>
         <li>
-          <a href=<%= $menuitem[0][1] %> <% if ($menuitem[0][0] eq "Host Summary" ) { %> class="active"<% } %> >
+          <a href=<%= $menuitem[0][1] %> <% if ($menuitem[0][0] eq "主机概况" ) { %> class="active"<% } %> >
           <%= $menuitem[0][0] %></a>
         </li>
       <% } %>
@@ -41,7 +41,7 @@
       <table id="hostsummary" border cellpadding="3" cellspacing="1">
         <tr>
           <th>主机</th>
-          <th>前次备份时间</th> 
+          <th>上次备份时间</th> 
         </tr>
         <% my $host_ptr = 0; %>
         <% foreach(@$hosts) { %>
