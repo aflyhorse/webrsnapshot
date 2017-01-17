@@ -599,8 +599,14 @@ get '/shutdown' => sub
   my $password = $self->session('password')?$self->session('password'):"";
   if ( $self->authenticate( $username, $password ) )
   {
-      $self->render(text => "System Shutting Down. Farewell.");
-      system("touch /opt/webrsnapshot/shutdown");
+    # Use MainMenu
+    my @menu = &mainMenu();
+    $self->stash( mainmenu        => [ @menu ]);
+    # User defined template
+    $self->stash( custom_template => $default_template );
+
+    $self->render('shutdown');
+    system("touch /opt/webrsnapshot/shutdown");
   }
   else
   {
