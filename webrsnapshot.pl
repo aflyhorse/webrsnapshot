@@ -156,7 +156,7 @@ post '/login' => sub {
   }
   else
   { 
-    $self->flash( login_failed => "Incorrect username or password.");
+    $self->flash( login_failed => "用户名或密码错误。");
     $self->redirect_to('/login');
   }
 };

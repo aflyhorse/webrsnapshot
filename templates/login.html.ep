@@ -48,16 +48,16 @@
 <body>
   <div id='loginform' class='center'>
     <form method='post' action='/login'>
-    <h1>Login</h1>
-    <LABEL>Username:</LABEL><INPUT type='text' name='username' /> <br/>
-    <LABEL>Password:</LABEL><INPUT type='password' name='password' /> <br/>
-    <INPUT type='submit' value='Login' />
+    <h1>登入</h1>
+    <LABEL>用户名:</LABEL><INPUT type='text' name='username' /> <br/>
+    <LABEL>密码:</LABEL><INPUT type='password' name='password' /> <br/>
+    <INPUT type='submit' value='登入' />
     </form>
   </div>
   
   <div id="error" class="hidden ui-state-error ui-corner-all center" title="ERROR">
     <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 50px 0;"></span>
-    <strong>ERROR:</strong><p><%= flash 'login_failed' %></p>
+    <strong>失败:</strong><p><%= flash 'login_failed' %></p>
   </div>
 </body>
 </html>
