@@ -614,13 +614,20 @@ get '/shutdown' => sub
 };
 
 # Shutdown confirmed
-get '/shutdown-confirmed' => sub
+post '/shutdown' => sub
 {
   my $self = shift;
   my $username = $self->session('username')?$self->session('username'):"";
   my $password = $self->session('password')?$self->session('password'):"";
   if ( $self->authenticate( $username, $password ) )
   {
+    # Use MainMenu
+    my @menu = &mainMenu();
+    $self->stash( mainmenu        => [ @menu ]);
+    # User defined template
+    $self->stash( custom_template => $default_template );
+
+    $self->render('shutdown-confirmed');
     system("touch /opt/webrsnapshot/shutdown2");
   }
   else
