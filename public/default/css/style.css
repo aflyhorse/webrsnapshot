@@ -32,7 +32,7 @@ table {
 }
 
 /* Head Positivioning */
-#headcontainer      { border:0px solid black; height:90px;}
+#headcontainer      { border:0px solid black; height:55px;}
 #logocontainer      { border:0px solid black; height:100%; min-width:15%; float:left;}
 #logorightcontainer { border:0px solid black; height:100%; float:left;}
 
