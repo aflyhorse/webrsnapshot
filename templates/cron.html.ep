@@ -20,9 +20,9 @@
   <div id="content">
     <div id="tabs">
       <ul>
-        <li><a>Cronjobs</a></li>
+        <li><a>计划任务</a></li>
       </ul>
-      <INPUT type="submit" class="submit_btn" value="Save">
+      <INPUT type="submit" class="submit_btn" value="保存">
 
 	<% my $mailchecked  = ""; %>
 	<% my $mailreadonly = ""; %>
@@ -32,7 +32,7 @@
 	   <% $mailreadonly = "readonly"; %> 
 	<% } %>
 	<% @$retains[0] =~ /"(.*)"/; %>
-        <LABEL>Email to (optional):</LABEL><br/>
+        <LABEL>发送邮件至(可选):</LABEL><br/>
         <INPUT type="text" name="cron_email" id="cron_email" class="configfield" 
              value="<%= $1 %>" <%= $mailreadonly %> />
 	<INPUT type="checkbox" name="cron_disabled" id="cron_email_checkbox" 
@@ -61,25 +61,25 @@
 
 <!-- Add new cronjob Button -->
 	<INPUT type="hidden" id="newcronid" name="newcron" value="<%= $retain_ptr; %>">
-	<INPUT type="button" id="add_cron" value="Add cron">
+	<INPUT type="button" id="add_cron" value="新增计划">
 
 <!-- Add new cronjob Form -->
-        <div id="add-cronjob-form" title="Create new cronjob">
+        <div id="add-cronjob-form" title="创建新的计划任务">
           <form>
             <fieldset>
               <span style="display:inline-block; width:22px;"></span>
-              <label for="command">Command</label><br/>
+              <label for="command">命令</label><br/>
               <div class="infoicon">
                 <img src="default/img/info.png" 
-                   title="Just select the retain from the drop-down-menu 
-                   and the full command will be filled in the text field" />
+                   title="只需从下拉菜单中选择存档， 
+                   完整的命令将会在文本框中生成" />
               </div>
               <input type="text" name="cron_command" id="cron_command_text" 
                    class="text ui-widget-content ui-corner-all configfieldbig1" />
               <% my $program = `which rsnapshot`; %>
               <% my $command = $program . " -c " . $rs_config; %>
               <select id="cron_command" onchange="changeCronSelect(this.id)">
-                <option value="">select</option>
+                <option value="">选择</option>
                 <% $retain_ptr = 0; %>
                 <% while ( @$retainnames > $retain_ptr) { %>
                   <option value="<%= $command . ' ' . @$retainnames[$retain_ptr]->[0] %>">
@@ -92,9 +92,9 @@
 
             <fieldset>
               <span style="display:inline-block; width:22px;"></span>
-              <label for="user">Username</label><br/>
+              <label for="user">用户名</label><br/>
               <div class="infoicon">
-                <img src="default/img/info.png" title="Usually you can put here <b>root</b>" />
+                <img src="default/img/info.png" title="通常你可以在此输入<b>root</b>" />
               </div>
               <input type="text" name="cron_user" id="cron_user" value="root" 
                    class="text ui-widget-content ui-corner-all" /><br/>
@@ -103,70 +103,70 @@
 
             <fieldset>
               <span style="display:inline-block; width:22px;"></span>
-              <label for="user">Minute</label><br/>
+              <label for="user">分钟</label><br/>
               <div class="infoicon">
-                <img src="default/img/info.png" title="Write some Info here" />
+                <img src="default/img/info.png" title="在此输入信息" />
               </div>
               <input type="text" name="cron_minute" id="cron_minute_text" 
                    value="" class="text ui-widget-content ui-corner-all" />
               <select id="cron_minute" onchange="changeCronSelect(this.id)">
-                <option value="">select</option>
-                <option value="*">every minute(*)</option>
-                <option value="*/5">every 5 minutes(*/5)</option>
-                <option value="0,15,30,45">every 15 minutes(0,15,30,45)</option>
+                <option value="">选择</option>
+                <option value="*">每分钟(*)</option>
+                <option value="*/5">每五分钟(*/5)</option>
+                <option value="0,15,30,45">每十五分钟(0,15,30,45)</option>
               </select><br/>
 
               <span style="display:inline-block; width:22px;"></span>
-              <label for="user">Hour</label><br/>
+              <label for="user">小时</label><br/>
               <div class="infoicon">
-                <img src="default/img/info.png" title="Write some Info here" />
+                <img src="default/img/info.png" title="在此输入信息" />
               </div>
               <input type="text" name="cron_hour" id="cron_hour_text" 
                    value="" class="text ui-widget-content ui-corner-all" />
               <select id="cron_hour" onchange="changeCronSelect(this.id)">
-                <option value="">select</option>
-                <option value="*">every hour(*)</option>
-                <option value="*/2">every 2 hours(*/2)</option>
+                <option value="">选择</option>
+                <option value="*">每小时(*)</option>
+                <option value="*/2">每两小时(*/2)</option>
               </select><br/>
 
               <span style="display:inline-block; width:22px;"></span>
-              <label for="user">Day</label><br/>
+              <label for="user">天</label><br/>
               <div class="infoicon">
-                <img src="default/img/info.png" title="Write some Info here" />
+                <img src="default/img/info.png" title="在此输入信息" />
               </div>
               <input type="text" name="cron_day" id="cron_day_text" 
                    value="" class="text ui-widget-content ui-corner-all" />
               <select  id="cron_day" onchange="changeCronSelect(this.id)">
-                <option value="">select</option>
-                <option value="*">every day(*)</option>
-                <option value="*/2">every 2 days(*/2)</option>
+                <option value="">选择</option>
+                <option value="*">每天(*)</option>
+                <option value="*/2">每两天(*/2)</option>
               </select><br/>
 
               <span style="display:inline-block; width:22px;"></span>
-              <label for="user">Month</label><br/>
+              <label for="user">月</label><br/>
               <div class="infoicon">
-                <img src="default/img/info.png" title="Write some Info here" />
+                <img src="default/img/info.png" title="在此输入信息" />
               </div>
               <input type="text" name="cron_month" id="cron_month_text" 
                    value="" class="text ui-widget-content ui-corner-all" />
               <select id="cron_month" onchange="changeCronSelect(this.id)">
-                <option value="">select</option>
-                <option value="*">every month(*)</option>
-                <option value="1">only in Januar(1)</option>
+                <option value="">选择</option>
+                <option value="*">每月(*)</option>
+                <option value="1">只在一月(1)</option>
               </select><br/>
 
               <span style="display:inline-block; width:22px;"></span>
-              <label for="user">Weekday</label><br/>
+              <label for="user">周</label><br/>
               <div class="infoicon">
-                <img src="default/img/info.png" title="Write some Info here" />
+                <img src="default/img/info.png" title="在此输入信息" />
               </div>
               <input type="text" name="cron_week" id="cron_week_text" 
                    value="" class="text ui-widget-content ui-corner-all" />
               <select id="cron_week" onchange="changeCronSelect(this.id)">
-                <option value="">select</option>
-                <option value="*">every weekday(*)</option>
-                <option value="1">every Monday(1)</option>
-                <option value="1-5">Monday bis Friday(1-5)</option>
+                <option value="">选择</option>
+                <option value="*">每天(*)</option>
+                <option value="1">每周一(1)</option>
+                <option value="1-5">每周一至周五(1-5)</option>
               </select><br/>
             </fieldset>
           </form>

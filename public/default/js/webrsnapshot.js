@@ -132,7 +132,7 @@ $(function() {
     modal: true,
     buttons: 
     {
-      "Append host": function()
+      "追加主机": function()
       {
         var inputValid = true;
         inputValid     = inputValid && checkInput( newservername.val() );
@@ -165,11 +165,11 @@ $(function() {
           document.rsnapshotconfform.submit();
         }
       },
-      Cancel: function() { 
+      取消: function() { 
         $( this ).dialog( "close" );
       }
     },
-    close: function() 
+    关闭: function() 
     {
       allFields.val( "" ).removeClass( "ui-state-error" );
     }
@@ -245,7 +245,7 @@ $(function() {
     modal: true,
     buttons:
     {
-      "Append cronjob": function(){
+      "添加计划任务": function(){
         var cron  = document.getElementById('cron_minute_text').value;
             cron += " " + document.getElementById('cron_hour_text').value;
             cron += " " + document.getElementById('cron_day_text').value;
@@ -265,12 +265,12 @@ $(function() {
         document.getElementById('newcronid').value = parseInt(newcronid) + 1;
         document.cronform.submit();
       },
-      Cancel: function() {
+      取消: function() {
         $( this ).dialog( "close" );
       }
 
     },
-    close: function()
+    关闭: function()
     {
       allFields.val( "" ).removeClass( "ui-state-error" );
     }

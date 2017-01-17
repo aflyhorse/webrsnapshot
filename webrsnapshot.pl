@@ -68,15 +68,15 @@ plugin 'authentication', {
 sub mainMenu
 {
   my @menuLinks;
-  $menuLinks[0][0] = "Home";
+  $menuLinks[0][0] = "首页";
   $menuLinks[0][1] = "/";
-  $menuLinks[1][0] = "Host Summary";
+  $menuLinks[1][0] = "主机概况";
   $menuLinks[1][1] = "/hostsummary";
-  $menuLinks[2][0] = "Rsnapshot Config";
+  $menuLinks[2][0] = "设置";
   $menuLinks[2][1] = "/config";
-  $menuLinks[3][0] = "Rsnapshot Log";
+  $menuLinks[3][0] = "日志";
   $menuLinks[3][1] = "/log";
-  $menuLinks[4][0] = "Cronjobs";
+  $menuLinks[4][0] = "计划任务";
   $menuLinks[4][1] = "/cron";
   $menuLinks[5][0] = "Shutdown Server";
   $menuLinks[5][1] = "/shutdown";
@@ -157,8 +157,8 @@ post '/login' => sub {
     $self->redirect_to('/');
   }
   else
-  {
-    $self->flash( login_failed => "Incorrect username or password.");
+  { 
+    $self->flash( login_failed => "用户名或密码错误。");
     $self->redirect_to('/login');
   }
 };

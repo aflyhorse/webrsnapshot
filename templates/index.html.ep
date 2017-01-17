@@ -36,24 +36,24 @@
   <div id="content">
     <div id="tabs">
       <ul>
-        <li><a>Home</a></li>
+        <li><a>首页</a></li>
       </ul>
 
       <div id="tabs-1">
       
       <ul>
-      <h3>General Information</h3>
-        <li>Rsnapshot config file: <strong><%= $rs_configfile %></strong></li>
-        <li>Rsnapshot root(backup folder): <strong><%= $rs_root_dir %></strong></li>
+      <h3>概况</h3>
+        <li>配置文件: <strong><%= $rs_configfile %></strong></li>
+        <li>备份目录: <strong><%= $rs_root_dir %></strong></li>
         <li>
-          Backup partition:<strong> <%= $partitionInfoPart %></strong>
-          with mount point: <strong><%= $partitionInfoMP %></strong>
+          备份分区:<strong> <%= $partitionInfoPart %></strong>
+          挂载于: <strong><%= $partitionInfoMP %></strong>
         </li>
         <li>
-          Allocation: <strong><%= $partitionInfoPerc %></strong>
-          (Size: <strong><%= $partitionInfoSize %></strong>, 
-           Used: <strong><%= $partitionInfoUsed %></strong>,
-           Free: <strong><%= $partitionInfoFree %></strong>)
+          空间使用量: <strong><%= $partitionInfoPerc %></strong>
+          (总空间: <strong><%= $partitionInfoSize %></strong>, 
+           已使用: <strong><%= $partitionInfoUsed %></strong>,
+           空闲: <strong><%= $partitionInfoFree %></strong>)
         </li>
       </ul>
       </div> <!--  End of Tab 1 -->

@@ -49,15 +49,15 @@
     <div id="headcontainer">
       <div id="logocontainer"><img src="<%= $custom_template %>/img/logo.png" /></div>
       <div id="logorightcontainer">Welcome to the Webrsnapshot!</div>
-      <div id="logout"><a href="/logout">Logout</a></div><br/>
+      <div id="logout"><a href="/logout">登出</a></div><br/>
     </div>
     <div id="saved_yes" class="hidden <%= flash 'warning' %>" title="Saving file">
        <p><span class="ui-icon ui-icon-check" style="float: left; margin: 0 7px 50px 0;"></span>
-      Successful saved</p><%= flash 'warning_message' %>
+     成功保存</p><%= flash 'warning_message' %>
     </div>
     <div id="error" class="ui-state-error hidden" title="ERROR">
       <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 50px 0;"></span>
-      ERROR:</p><%= flash 'error_message' %>
+      错误:</p><%= flash 'error_message' %>
     </div>
     <%= content %>
     <div id="footer">

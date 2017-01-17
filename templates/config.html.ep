@@ -37,15 +37,15 @@
   <div id="content">
     <div id="tabs">
       <ul>
-        <li><a href="#tabs-1">Root</a></li>
-        <li><a href="#tabs-2">Commands</a></li>
-        <li><a href="#tabs-3">Global Config</a></li>
-        <li><a href="#tabs-4">Backup Interval</a></li>
-        <li><a href="#tabs-5">Include/Exclude</a></li>
-        <li><a href="#tabs-6">Hosts</a></li>
-        <li><a href="#tabs-7">Scripts</a></li>
+        <li><a href="#tabs-1">核心</a></li>
+        <li><a href="#tabs-2">命令</a></li>
+        <li><a href="#tabs-3">全局设置</a></li>
+        <li><a href="#tabs-4">备份间隔计划</a></li>
+        <li><a href="#tabs-5">白/黑名单</a></li>
+        <li><a href="#tabs-6">主机</a></li>
+        <li><a href="#tabs-7">脚本</a></li>
       </ul>
-      <INPUT type="submit" class="submit_btn" value="Save">
+      <INPUT type="submit" class="submit_btn" value="保存">
 <!-- 
       ##########################################################
       ##########################################################
@@ -56,20 +56,20 @@
       <div id="tabs-1">
         <div class="infoicon">
           <img src="default/img/info.png" 
-            title="<b>Default: 1.2</b> (required)<br/> 
-            Config file version<br/>You should not change this!!!" />
+            title="<b>默认: 1.2</b> (必填)<br/> 
+            设置文件版本号<br/>你不应该修改这项!!!" />
         </div>
-        <div class="configlabel"><LABEL>config_version</LABEL></div>
+        <div class="configlabel"><LABEL>设置版本号</LABEL></div>
         <div>
           <INPUT type="text" name="config_version" class="configfield" value="<%= $config_version %>" />
         </div>
         <br/>
 
         <div class="infoicon">
-          <img src="default/img/info.png" title="Local filesystem path to save all snapshots.<br>
-          <b>Don't forget the trailing slash!!!</b>" />
+          <img src="default/img/info.png" title="存储备份的本地路径<br>
+          <b>不要忘记结尾的斜线!!!</b>" />
         </div>
-        <div class="configlabel"><LABEL>snapshot_root</LABEL></div>
+        <div class="configlabel"><LABEL>备份目录</LABEL></div>
         <div>
           <INPUT type="text" name="snapshot_root" class="configfield" value="<%= $snapshot_root %>" />
         </div>
@@ -77,11 +77,10 @@
 
         <div class="infoicon">
           <img src="default/img/info.png" 
-            title="If no_create_root is enabled (checked), rsnapshot will not automatically create the
-            <b>snapshot_root</b> directory. This is particularly useful if you are backing up to removable
-            media, such as a FireWire or USB drive." />
+            title="如果选择不新建目录(将会检查), rsnapshot将会自动新建
+            <b>备份目录</b>文件夹。 这在你选择USB设备等可移动设备做备份时尤其有用。" />
         </div>
-        <div class="configlabel"><LABEL>no_create_root</LABEL></div>
+        <div class="configlabel"><LABEL>不新建目录</LABEL></div>
         <div><INPUT type="checkbox" name="no_create_root" <%= $no_create_root %> /></div>
         <br/>
 
@@ -505,16 +504,15 @@
               <% my $serverid = $bkp_srv_ptr; %>
               <% my $server = @$backup_servers[$bkp_srv_ptr]; %>
               <h3 id="server_<%= $serverid %>_name">
-                Host: <b><%= substr($server->[1], 0, -1) %></b>
+                主机: <b><%= substr($server->[1], 0, -1) %></b>
                 <INPUT type="button" value="Delete" onclick="serverDelete(<%= $serverid %>)" 
-                  title="Delete the host: <b><%= substr($server->[1], 0, -1) %></b> from 
-                  the backup configuration." />
+                  title="从备份配置中删除主机: <b><%= substr($server->[1], 0, -1) %></b>" />
               </h3>
               <div id="server_<%= $serverid %>_config">
                 <div>
                   <span style="display:inline-block; width:72px;"></span>
-                  <span style="display:inline-block; width:306px;">Backup directory</span>
-                  <span class="configfield">Optional directory args</span>
+                  <span style="display:inline-block; width:306px;">备份文件夹</span>
+                  <span class="configfield">可选文件夹参数</span>
                 </div>
                 <INPUT type="hidden" id="server_label_<%= $serverid %>"
                   name="server_label_<%= $serverid %>" value="<%= substr($server->[1], 0, -1)%>"/>
@@ -524,10 +522,10 @@
                 <% SRVLABEL: $newserver = @$backup_servers[$bkp_srv_ptr]; %>
                 <% if (@$backup_servers > $bkp_srv_ptr and !($server->[1] ne $newserver->[1])) { %>
                   <div id="server_<%= $serverid %>_dir_<%= $newdirid %>">
-                    <INPUT type="button" value="Delete" 
+                    <INPUT type="button" value="删除" 
                       id="server_<%= $serverid %>_dir_<%= $newdirid %>_del"
                       onclick="srvDelDir(<%= $serverid %>, <%= $newdirid %>)" 
-                      title="Delete this directory from the backup."/>
+                      title="从备份列表中删除该文件夹"/>
                     <INPUT type="text" id="server_<%= $serverid %>_dir_<%= $newdirid %>_dir"
                       name="server_<%= $serverid %>_dir_<%= $newdirid %>_dir"
                        class="configfield" value="<%= $newserver->[0] %>" />
@@ -542,10 +540,10 @@
               </div>
               <INPUT type="hidden" id="server_<%= $serverid %>_dircount"
                 name="server_<%= $serverid %>_dircount" value="<%= $newdirid %>" />
-              <INPUT type="button" value="Add"
+              <INPUT type="button" value="添加"
                 id="srvAddDir_<%= $serverid %>" name="<%= $newdirid %>"
                 onclick="srvAddDir(this.id,this.name,'<%= $serverid %>');" 
-                title="Add new directory for backup for: <b><%= substr($server->[1], 0, -1) %></b>"/>
+                title="往主机<b><%= substr($server->[1], 0, -1) %></b>的备份目录中添加文件夹"/>
             </div>
 <!-- End of Host -->
           <% } %>	
@@ -554,21 +552,21 @@
         </div> <!-- End of Hosts Accordion -->
 <!-- Add new Host Button -->
         <INPUT type="hidden" id="servers_count" name="servers_count" value="<%= $bkp_srv_ptr %>" />
-        <INPUT type="button" value="Add new host" id="serverAdd" name="<%= $bkp_srv_ptr %>"
-          title="Add new host to backup configuration."/>
+        <INPUT type="button" value="新增主机" id="serverAdd" name="<%= $bkp_srv_ptr %>"
+          title="新增主机至备份配置中"/>
 <!-- Add new Host Form -->
-        <div id="add-server-form" title="Create new host">
+        <div id="add-server-form" title="新建主机">
           <form>
             <fieldset>
-              <label for="name">*Name</label>
+              <label for="name">*名字</label>
               <input type="text" name="newservername" id="newservername" 
                 class="text ui-widget-content ui-corner-all" /><br/>
-              Example: myhost, john-server
+              例如: myhost, john-server
             </fieldset>
             <fieldset>
-              <label for="ip">*FQDN or host ip</label>
+              <label for="ip">*绝对域名或主机ip</label>
               <input type="text" name="fqdn" id="fqdn" value="" class="text ui-widget-content ui-corner-all" /><br/>
-              Example: myserver.org, 10.1.1.24
+              例如: myserver.org, 10.1.1.24
             </fieldset>
           </form>
         </div>
