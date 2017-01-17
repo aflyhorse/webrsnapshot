@@ -628,7 +628,7 @@ post '/shutdown' => sub
     $self->stash( custom_template => $default_template );
 
     $self->render('shutdown-confirmed');
-    system("touch /opt/webrsnapshot/shutdown2");
+    system("shutdown -h now");
   }
   else
   {
