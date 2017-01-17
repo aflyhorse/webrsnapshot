@@ -591,7 +591,7 @@ get '/config' => sub {
   }
 };
 
-# Shutdown server
+# Shutdown server - need confirm
 get '/shutdown' => sub
 {
   my $self = shift;
@@ -606,7 +606,22 @@ get '/shutdown' => sub
     $self->stash( custom_template => $default_template );
 
     $self->render('shutdown');
-    system("touch /opt/webrsnapshot/shutdown");
+  }
+  else
+  {
+    $self->redirect_to('/login');
+  }
+};
+
+# Shutdown confirmed
+get '/shutdown-confirmed' => sub
+{
+  my $self = shift;
+  my $username = $self->session('username')?$self->session('username'):"";
+  my $password = $self->session('password')?$self->session('password'):"";
+  if ( $self->authenticate( $username, $password ) )
+  {
+    system("touch /opt/webrsnapshot/shutdown2");
   }
   else
   {

@@ -22,8 +22,8 @@
       <ul>
         <li><a>Shutdown Server</a></li>
       </ul>
-
-	<INPUT type="button" id="shutdown_confirm" value="Click again to confirm.">
+  Click Again to confirm:
+	<INPUT type="button" class="submit_btn" value="Shutdown Confirmed." onclick="$.get('/shutdown-confirmed');">
 
   </div> <!-- End of Content -->
   </form>
