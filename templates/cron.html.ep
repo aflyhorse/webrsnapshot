@@ -36,7 +36,7 @@
         <INPUT type="text" name="cron_email" id="cron_email" class="configfield" 
              value="<%= $1 %>" <%= $mailreadonly %> />
 	<INPUT type="checkbox" name="cron_disabled" id="cron_email_checkbox" 
-             onclick="disableCronEmail(this.id)" <%= $mailchecked %> />Disabled<br />
+             onclick="disableCronEmail(this.id)" <%= $mailchecked %> />停用<br />
 
 
         <br/><br/><br/>
@@ -48,12 +48,12 @@
 	      <INPUT type="text" name="cronjob_<%= $retain_ptr %>" 
                    id="cronjob_<%= $retain_ptr %>" class="configfieldbig" 
                    value="<%= $cron %>" />
-	      <INPUT type="button" value="Delete" onclick="deleteCronjob(<%= $retain_ptr %>)" />
+	      <INPUT type="button" value="删除" onclick="deleteCronjob(<%= $retain_ptr %>)" />
 	      <% my $checked; %>
 	      <% if ( $cron =~ m/^#/ ) { $checked = "checked"; } %>
 	      <INPUT type="checkbox" id="cronCheck_<%= $retain_ptr %>" 
                    <%= $checked %> onclick="disbaleCronjob(this.id,<%= $retain_ptr %>)" />
-                   Disabled<br/>
+                   停用<br/>
 	      <% $retain_ptr++; %>
             </div>
 	  <% } %>
