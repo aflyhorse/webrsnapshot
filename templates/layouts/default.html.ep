@@ -21,7 +21,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title><%= title %></title>
+    <title>华算智能在线备份系统</title>
     <link rel="shortcut icon" href="<%= $custom_template %>/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="<%= $custom_template %>/css/jquery-ui-1.10.3.custom.min.css" />
     <link rel="stylesheet" type="text/css" href="<%= $custom_template %>/css/style.css" />
@@ -51,11 +51,11 @@
       <div id="logorightcontainer"><font size=6>欢迎使用华算智能在线备份系统</font></div>
       <div id="logout"><a href="/logout">登出</a></div><br/>
     </div>
-    <div id="saved_yes" class="hidden <%= flash 'warning' %>" title="Saving file">
+    <div id="saved_yes" class="hidden <%= flash 'warning' %>" title="保存配置文件">
        <p><span class="ui-icon ui-icon-check" style="float: left; margin: 0 7px 50px 0;"></span>
      成功保存</p><%= flash 'warning_message' %>
     </div>
-    <div id="error" class="ui-state-error hidden" title="ERROR">
+    <div id="error" class="ui-state-error hidden" title="错误">
       <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 50px 0;"></span>
       错误:</p><%= flash 'error_message' %>
     </div>

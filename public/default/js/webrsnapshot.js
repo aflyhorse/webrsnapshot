@@ -62,7 +62,7 @@ function addInclude(buttonid, count) {
     '</div>'+
     '<div class="configlabel" id="include_' + count + '_label"><LABEL>include</LABEL></div>' +
     '<div id="include_' + count + '">' +
-      '<INPUT type="button" value="Delete" onclick="delExIn(\'include_' + count +'\');"> ' + 
+      '<INPUT type="button" value="删除" onclick="delExIn(\'include_' + count +'\');"> ' + 
       '<INPUT type="text" class="configfield" name="include_' + count + '" value="" />' +
     '</div>');
 }
@@ -80,7 +80,7 @@ function addExclude(buttonid, count) {
       '</div>' +	
       '<div class="configlabel" id="exclude_' + count + '_label"><LABEL>exclude</LABEL></div>' +
       '<div id="exclude_'+ count + '">' +
-        '<INPUT type="button" value="Delete" onclick="delExIn(\'exclude_' + count + '\');"/> ' +
+        '<INPUT type="button" value="删除" onclick="delExIn(\'exclude_' + count + '\');"/> ' +
         '<INPUT type="text" class="configfield" name="exclude_' + count +'" value="" />' +
       '</div>');
 }
@@ -103,7 +103,7 @@ function srvAddDir(buttonid, dir_id, serverid) {
   document.getElementById(buttonid).name = next;
   document.getElementById("server_" + serverid + "_dircount").value = next;
   $("#server_" + serverid + "_dirs").append('<div id="server_' + serverid + '_dir_' + dir_id + '">' +
-      '<INPUT type="button" value="Delete" id="server_' + serverid + '_dir_' + dir_id + '_del" ' +
+      '<INPUT type="button" value="删除" id="server_' + serverid + '_dir_' + dir_id + '_del" ' +
               'onclick="srvDelDir(' + serverid + ', ' + dir_id + ')" /> ' + 
       '<INPUT type="text" id="server_' + serverid + '_dir_' + dir_id + '_dir" class="configfield"' +
               'name="server_' + serverid + '_dir_' + dir_id + '_dir" value="" /> ' +
@@ -206,7 +206,7 @@ function addBkpScript(buttonid,count) {
     '</div>' +
     '<div class="configlabel" id="bkp_script_' + count + '_label"><LABEL>backup_script</LABEL></div>' +
     '<div id="bkp_script_' + count + '">' +
-      '<INPUT type="button" value="Delete" onclick="delBkpScript(' + count + ');"> ' +
+      '<INPUT type="button" value="删除" onclick="delBkpScript(' + count + ');"> ' +
       '<INPUT type="text" class="configfieldsmall" value="" name="bkp_script_' + count + '_script"/> ' +
       '<INPUT type="text" class="configfieldsmall" value="" name="bkp_script_' + count + '_target"/> ' +
     '</div>');
@@ -226,12 +226,12 @@ function addRetain(buttonid, current_number) {
       '<div class="infoicon">' +
         '<img src="default/img/info.png" title="The number of snapshots that will be retained for new backups." />' +
       '</div>' +
-      '<div class="configlabel">Retain ' +
+      '<div class="configlabel">保留 ' +
         '<INPUT type="text" name="retain_' + current_number + '_name" class="configfieldtiny" value="" />' +
       '</div>' +
       '<div>' +
         '<INPUT type="text" name="retain_' + current_number + '_count" class="configfieldtiny" value="" /> ' +
-        '<INPUT type="button" value="Delete" onclick="delRetain(' + current_number + ');"></div><br/></div>');
+        '<INPUT type="button" value="删除" onclick="delRetain(' + current_number + ');"></div><br/></div>');
 }
 
 // Add Crontab
@@ -257,7 +257,7 @@ $(function() {
 	    '<INPUT type="text" name="cronjob_' + newcronid + '" id="cronjob_' + 
             newcronid + '" class="configfieldbig"' + 'value="' + cron + '" readonly />' +
 	    ' <INPUT type="button" id="cron_edit_' + newcronid + '" value="Edit" />' +
-	    ' <INPUT type="button" value="Delete" onclick="deleteCronjob(' + newcronid + ')" />' +
+	    ' <INPUT type="button" value="删除" onclick="deleteCronjob(' + newcronid + ')" />' +
 	    ' <INPUT type="checkbox" id="cronCheck_' + newcronid + 
             '"  onclick="disbaleCronjob(this.id,' + newcronid + ')" />Disabled<br/></div>';
         $("#cronjobs").append(newcronstring);

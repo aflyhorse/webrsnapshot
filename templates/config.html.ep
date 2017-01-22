@@ -361,16 +361,16 @@
               <div id="retainNumber_<%= $retainNumber %>">
                 <div class="infoicon">
                   <img src="default/img/info.png"
-                    title="The number of snapshots that will be retained for <%= $retainArray->[0] %> backups." />
+                    title="备份计划<%= $retainArray->[0] %>将会保留的快照数量。" />
                 </div>
-                <div class="configlabel">Retain
+                <div class="configlabel">保留
                   <INPUT type="text" name="retain_<%= $retainNumber %>_name"
                     class="configfieldtiny" value="<%= $retainArray->[0] %>" />
                 </div>
                 <div>
                   <INPUT type="text" name="retain_<%= $retainNumber %>_count" 
                     class="configfieldtiny" value="<%= $retainArray->[1] %>" />
-                  <INPUT type="button" value="Delete" onclick="delRetain('<%= $retainNumber %>');">
+                  <INPUT type="button" value="删除" onclick="delRetain('<%= $retainNumber %>');">
                 </div>
                 <br/>
               </div>
@@ -381,11 +381,11 @@
         <div id="retains">
         </div>
         <div class="infoicon">
-          <img src="default/img/info.png" title="The number of snapshots that will be retained for custom backups."/>
+          <img src="default/img/info.png" title="待定的备份计划将会保留的快照数量。"/>
         </div>
-        <div class="configlabel">Retain
+        <div class="configlabel">保留
           <INPUT type="hidden" id="retain_count" name="retain_count" value="<%= $retain_ptr %>" />
-          <INPUT type="button" value="Add" id="retain_add" name="<%= $retain_ptr %>"
+          <INPUT type="button" value="新增" id="retain_add" name="<%= $retain_ptr %>"
             onclick="addRetain(this.id, this.name)" />
         </div><br/>
       </div>
@@ -434,7 +434,7 @@
               </div>
               <div class="configlabel" id="include_<%= $include_ptr %>_label"><LABEL>include</LABEL></div>
               <div id="include_<%= $include_ptr %>">
-                <INPUT type="button" value="Delete" onclick="delExIn('include_<%= $include_ptr %>');">
+                <INPUT type="button" value="删除" onclick="delExIn('include_<%= $include_ptr %>');">
                 <INPUT type="text" name="include_<%= $include_ptr %>"  class="configfield"
                   value="<%= @$include[$include_ptr++] %>" />
               </div>
@@ -468,7 +468,7 @@
               </div>
               <div class="configlabel" id="exclude_<%= $exclude_ptr %>_label"><LABEL>exclude</LABEL></div>
               <div id="exclude_<%= $exclude_ptr %>">
-                <INPUT type="button" value="Delete" onclick="delExIn('exclude_<%= $exclude_ptr %>');" />
+                <INPUT type="button" value="删除" onclick="delExIn('exclude_<%= $exclude_ptr %>');" />
                 <INPUT type="text" name="exclude_<%= $exclude_ptr %>" 
                   class="configfield" value="<%= @$exclude[$exclude_ptr++] %>" />
               </div>
@@ -505,7 +505,7 @@
               <% my $server = @$backup_servers[$bkp_srv_ptr]; %>
               <h3 id="server_<%= $serverid %>_name">
                 主机: <b><%= substr($server->[1], 0, -1) %></b>
-                <INPUT type="button" value="Delete" onclick="serverDelete(<%= $serverid %>)" 
+                <INPUT type="button" value="删除" onclick="serverDelete(<%= $serverid %>)" 
                   title="从备份配置中删除主机: <b><%= substr($server->[1], 0, -1) %></b>" />
               </h3>
               <div id="server_<%= $serverid %>_config">
@@ -598,7 +598,7 @@
             </div>
             <div class="configlabel" id="bkp_script_<%= $bkp_script_ptr %>_label"><LABEL>backup_script</LABEL></div>
             <div id="bkp_script_<%= $bkp_script_ptr %>">
-              <INPUT type="button" value="Delete" onclick="delBkpScript(<%= $bkp_script_ptr %>);">
+              <INPUT type="button" value="删除" onclick="delBkpScript(<%= $bkp_script_ptr %>);">
               <INPUT type="text" class="configfieldsmall" value="<%= $script->[0] %>" 
                 name="bkp_script_<%= $bkp_script_ptr %>_script" />
               <INPUT type="text" class="configfieldsmall" value="<%= $script->[1] %>" 
